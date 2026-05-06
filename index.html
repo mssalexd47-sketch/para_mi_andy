@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andreita</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- PANTALLA DE INICIO (CENTRADO ABSOLUTO) -->
+    <div id="overlay" class="overlay">
+        <div class="overlay-content">
+            <h1 class="glow-text">Con amor para ti...</h1>
+            <button id="start-btn" class="main-magic-btn">Bienvenida</button>
+        </div>
+    </div>
+
+    <!-- MÚSICA -->
+    <audio id="bg-music" loop>
+        <source src="musica.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- CUADRO PRINCIPAL (PROPORCIÓN VERTICAL) -->
+    <div class="card hidden" id="main-card">
+        <div class="card-inner">
+            
+            <div class="flower-section">
+                <h2 class="neon-text">Para ti mi Vidita</h2>
+                <div class="lily-structure">
+                    <div class="petals-container">
+                        <div class="petal p1"></div><div class="petal p2"></div>
+                        <div class="petal p3"></div><div class="petal p4"></div>
+                        <div class="petal p5"></div><div class="petal p6"></div>
+                        <div class="petal p7"></div><div class="petal p8"></div>
+                        <div class="petal p9"></div><div class="petal p10"></div>
+                        <div class="petal p11"></div><div class="petal p12"></div>
+                        <div class="center-glow"></div>
+                    </div>
+                    <div class="stem"></div>
+                </div>
+            </div>
+
+            <div class="poem-section">
+                <p>En este universo de sombras,</p>
+                <p>tú eres la luz que lo arriesga todo.</p>
+                <p>Como este lirio que nunca marchita,</p>
+                <p>mi amor por ti no conoce el modo.</p>
+            </div>
+
+            <div class="envelope-section">
+                <button id="btn-carta-1" class="envelope-btn">Nota Especial</button>
+                <button id="btn-carta-2" class="envelope-btn btn-premium">Mi amor por ti</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 1: TE QUIERO MUCHOTE -->
+    <div id="modal-1" class="modal">
+        <div class="paper-letter">
+            <span class="close-btn" data-modal="modal-1">&times;</span>
+            <h3 class="letter-title">Te quiero muchote</h3>
+            <div class="letter-body">
+                <p>Cada día que pasa, cada minuto y cada segundo es una oportunidad para confirmar que eres lo que siempre busqué.</p>
+                <p>Me enamoro de ti en cada silencio. Te querré hoy, mañana y siempre. Me enamoraste mas que a nada y ahora tu te</p>
+                <p>ganaste esta parte tan oculta de mi, cada mensaje, cada broma o berrinche es una muestra de que te quiero de que tu</p>
+                <p>Eres lo que quiero ahora y lo que querre siempre, te quiero mucho mi amorcito, eres lo mejor, eres mi <b>Vidita</b></p>
+                <p class="letter-signature">Con amor: <span class="signature-neon">Mauricio</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 2: COMPLETAMENTE ENAMORADO -->
+    <div id="modal-2" class="modal">
+        <div class="paper-letter">
+            <span class="close-btn" data-modal="modal-2">&times;</span>
+            <h3 class="letter-title">Completamente Enamorado, Enamorado de ti...</h3>
+            <div class="letter-body">
+                <p>No es solo un te quiero, ni un me gustas.<b> Estoy completamente enamorado de ti</b>. De tu luz y de la paz que me das.</p>
+                <p>Arriesgarlo todo por ti es la decisión más fácil de mi vida.</p>
+                <p>Y porque tu eres lo unico que ahora necesito</p>
+                <p class="letter-signature">Tuyo siempre: <span class="signature-neon">Mauricio</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

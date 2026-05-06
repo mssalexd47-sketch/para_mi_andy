@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+    --bg-dark: #00050a;
+    --lily-cyan: #00d4ff;
+    --glow-blue: #0077b6;
+    --gold: #ffd700;
+}
+
+body {
+    background-color: var(--bg-dark);
+    margin: 0; height: 100vh;
+    display: flex; justify-content: center; align-items: center;
+    font-family: 'Poppins', sans-serif; overflow: hidden;
+}
+
+/* --- PANTALLA DE INICIO (CENTRADO PERFECTO) --- */
+.overlay {
+    position: fixed; inset: 0; background: var(--bg-dark);
+    z-index: 5000; display: flex; flex-direction: column; 
+    justify-content: center; align-items: center;
+    transition: opacity 1s ease;
+}
+.overlay-content { text-align: center; }
+.glow-text {
+    font-family: 'Dancing Script', cursive; font-size: 3.5rem;
+    color: var(--lily-cyan); text-shadow: 0 0 20px var(--glow-blue);
+    margin-bottom: 40px;
+}
+.main-magic-btn {
+    background: transparent; border: 2px solid var(--lily-cyan);
+    color: white; padding: 18px 45px; border-radius: 50px;
+    font-size: 1.2rem; cursor: pointer; transition: all 0.3s ease;
+    animation: pulseMagic 2s infinite;
+}
+@keyframes pulseMagic {
+    0%, 100% { box-shadow: 0 0 10px var(--glow-blue); transform: scale(1); }
+    50% { box-shadow: 0 0 30px var(--lily-cyan); transform: scale(1.05); }
+}
+
+/* --- CUADRO PRINCIPAL VERTICAL --- */
+.card {
+    background: #000c1d; width: 380px; height: 620px;
+    border: 1px solid rgba(0, 212, 255, 0.2); border-radius: 40px;
+    padding: 30px; box-shadow: 0 0 60px rgba(0, 119, 182, 0.3);
+    display: flex; flex-direction: column; transition: 1.5s ease;
+}
+.hidden { opacity: 0; transform: scale(0.9); pointer-events: none; }
+
+/* LIRIO ESTRUCTURA FIJA */
+.flower-section { height: 260px; display: flex; flex-direction: column; align-items: center; position: relative; }
+.neon-text { font-family: 'Dancing Script'; font-size: 3.2rem; color: white; text-shadow: 0 0 15px var(--lily-cyan); margin: 0; }
+
+.lily-structure { position: relative; margin-top: 25px; display: flex; flex-direction: column; align-items: center; }
+.petals-container { position: relative; width: 0; height: 0; z-index: 5; }
+.petal {
+    position: absolute; bottom: 0; left: 50%; width: 45px; height: 115px;
+    background: rgba(0, 212, 255, 0.1); border: 1.5px solid var(--lily-cyan);
+    border-radius: 50% 50% 20% 20%; transform-origin: bottom center; margin-left: -22.5px;
+}
+.stem { width: 10px; height: 160px; background: linear-gradient(to top, transparent, var(--lily-cyan)); border-radius: 5px; margin-top: -5px; box-shadow: 0 0 15px var(--glow-blue); }
+.center-glow { position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%); width: 18px; height: 18px; background: white; border-radius: 50%; box-shadow: 0 0 25px white; z-index: 10; }
+
+/* POEMA */
+.poem-section { text-align: center; color: #a9d6e5; font-size: 0.9rem; line-height: 2.1; margin: 25px 0; font-style: italic; }
+
+/* BOTONES CON EFECTO DE AUMENTO DE COLOR */
+.envelope-section { display: flex; gap: 15px; margin-top: auto; }
+.envelope-btn {
+    flex: 1; background: transparent; border: 2px solid var(--lily-cyan);
+    color: var(--lily-cyan); padding: 12px; border-radius: 30px;
+    font-weight: bold; cursor: pointer; transition: all 0.4s ease;
+    box-shadow: 0 0 5px transparent;
+}
+.envelope-btn:hover {
+    background: rgba(0, 212, 255, 0.15);
+    color: white;
+    border-color: white;
+    box-shadow: 0 0 25px var(--lily-cyan);
+    transform: translateY(-3px);
+}
+
+.btn-premium { border-color: var(--gold); color: var(--gold); }
+.btn-premium:hover {
+    background: rgba(255, 215, 0, 0.15);
+    border-color: white;
+    box-shadow: 0 0 30px var(--gold);
+}
+
+/* MODALES Y FIRMA LLAMATIVA */
+.modal { position: fixed; inset: 0; background: rgba(0,0,0,0.92); display: flex; justify-content: center; align-items: center; z-index: 6000; opacity: 0; visibility: hidden; transition: 0.5s; }
+.modal.show { opacity: 1; visibility: visible; }
+.paper-letter { background: #000f21; border: 2px solid var(--lily-cyan); padding: 40px; border-radius: 30px; color: #caf0f8; width: 80%; max-width: 450px; position: relative; }
+.close-btn { position: absolute; top: 15px; right: 20px; font-size: 2.2rem; color: var(--lily-cyan); cursor: pointer; }
+
+/* ESTILO YAN BLOCK LLAMATIVO */
+.signature-neon {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: white;
+    font-weight: bold;
+    display: inline-block;
+    margin-left: 10px;
+    text-shadow: 0 0 10px var(--lily-cyan), 0 0 20px var(--glow-blue), 0 0 30px var(--lily-cyan);
+}
+
+/* Rotaciones Pétalos */
+.p1 { transform: rotate(0deg); } .p2 { transform: rotate(30deg); } .p3 { transform: rotate(-30deg); }
+.p4 { transform: rotate(60deg); } .p5 { transform: rotate(-60deg); } .p6 { transform: rotate(90deg); }
+.p7 { transform: rotate(-90deg); } .p8 { transform: rotate(120deg); } .p9 { transform: rotate(-120deg); }
+.p10 { transform: rotate(150deg); } .p11 { transform: rotate(-150deg); } .p12 { transform: rotate(180deg); }
