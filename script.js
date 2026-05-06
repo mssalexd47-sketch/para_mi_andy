@@ -3,11 +3,8 @@ const overlay = document.getElementById('overlay');
 const music = document.getElementById('bg-music');
 const mainCard = document.getElementById('main-card');
 
-// Iniciar Experiencia
 startBtn.onclick = () => {
-    // Intenta reproducir la música de Bruno Mars
-    music.play().catch(e => console.log("Música esperando interacción"));
-    
+    music.play().catch(() => console.log("Esperando interacción"));
     overlay.style.opacity = '0';
     setTimeout(() => {
         overlay.style.display = 'none';
@@ -15,32 +12,33 @@ startBtn.onclick = () => {
     }, 1000);
 };
 
-// Control de Modales (Cartas)
-const configCartas = {
-    'btn-carta-1': 'modal-1',
-    'btn-carta-2': 'modal-2'
-};
+function createParticles() {
+    for (let i = 0; i < 40; i++) {
+        let p = document.createElement('div');
+        p.className = 'particle';
+        let size = Math.random() * 3 + 1 + 'px';
+        p.style.width = size; p.style.height = size;
+        p.style.left = Math.random() * 100 + 'vw';
+        p.style.top = Math.random() * 100 + 'vh';
+        
+        let isGold = Math.random() > 0.7;
+        p.style.backgroundColor = isGold ? '#ffcc33' : '#00d4ff';
+        p.style.boxShadow = `0 0 8px ${isGold ? '#ffcc33' : '#00d4ff'}`;
+        
+        p.style.animationDuration = (Math.random() * 5 + 5) + 's';
+        p.style.animationDelay = Math.random() * 5 + 's';
+        document.body.appendChild(p);
+    }
+}
 
+const configCartas = { 'btn-carta-1': 'modal-1', 'btn-carta-2': 'modal-2' };
 Object.entries(configCartas).forEach(([btnId, modalId]) => {
-    const btn = document.getElementById(btnId);
-    const modal = document.getElementById(modalId);
-    
-    if(btn && modal) {
-        btn.onclick = () => modal.classList.add('show');
-    }
+    document.getElementById(btnId).onclick = () => document.getElementById(modalId).classList.add('show');
 });
 
-// Cerrar modales al hacer clic en la X
 document.querySelectorAll('.close-btn').forEach(btn => {
-    btn.onclick = () => {
-        const id = btn.getAttribute('data-modal');
-        document.getElementById(id).classList.remove('show');
-    };
+    btn.onclick = () => document.getElementById(btn.getAttribute('data-modal')).classList.remove('show');
 });
 
-// Cerrar al hacer clic fuera del papel de la carta
-window.onclick = (e) => {
-    if (e.target.classList.contains('modal')) {
-        e.target.classList.remove('show');
-    }
-};
+window.onclick = (e) => { if (e.target.classList.contains('modal')) e.target.classList.remove('show'); };
+window.onload = createParticles;
